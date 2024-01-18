@@ -19,8 +19,14 @@ app.get('/api/v1/menores-de-30', (req, res) => {
 
 app.get('/api/v1/edad/:edad', (req, res) => {
     let edad = req.params.edad
-    let filtradors = workers.filter(worker => worker.age == edad)
-    res.send(filtradors)
+    let filtrados = workers.filter(worker => worker.age == edad)
+    res.send(filtrados)
+})
+
+app.get('/api/v1/role/:role', (req, res) => {
+    let role = req.params.role
+    let filtrados = workers.filter(worker => worker.role.toLowerCase() == role.toLowerCase())
+    res.send(filtrados)
 })
 
 app.listen(5000, () => console.log('listening on port 5000'))
