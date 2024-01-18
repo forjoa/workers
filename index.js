@@ -9,10 +9,14 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.write('<h1>Welcome!</h1>')
-  res.write('<p>This is an example of how to make an API with Express and Node.js</p>')
-  res.write("<p>Main path to start: '/api/v1/'</p>")
-  res.write('<p>Made by Joaquin: <a href="https://github.com/forjoa/workers" target="_blank">GitHub Repo</a></p>')
+  const htmlContent = `
+    <h1>Welcome!</h1>
+    <p>This is an example of how to make an API with Express and Node.js</p>
+    <p>Main path to start: '/api/v1/'</p>
+    <p>Made by Joaquin: <a href="https://github.com/forjoa/workers" target="_blank">GitHub Repo</a></p>
+  `
+
+  res.send(htmlContent)
   res.end()
 })
 
